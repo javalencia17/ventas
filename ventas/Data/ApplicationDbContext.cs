@@ -12,5 +12,8 @@ namespace ventas.Data
             : base(options)
         {
         }
+        public DbSet<ventas.Models.Categoria> Categoria { get; set; }
+        public DbSet<ventas.Models.Articulo> Articulo { get; set; }
+        
     }
 }

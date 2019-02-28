@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ventas.Data;
 
 namespace ventas.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190228020015_[MigracionArticulos]")]
+    partial class MigracionArticulos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -184,52 +186,6 @@ namespace ventas.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("ventas.Models.Articulo", b =>
-                {
-                    b.Property<int>("ArticuloID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CategoriaID");
-
-                    b.Property<string>("Codigo");
-
-                    b.Property<string>("Descripcion")
-                        .HasColumnType("text");
-
-                    b.Property<byte>("Estado")
-                        .HasColumnType("tinyint");
-
-                    b.Property<string>("Nombre");
-
-                    b.Property<int>("Stock");
-
-                    b.HasKey("ArticuloID");
-
-                    b.HasIndex("CategoriaID");
-
-                    b.ToTable("Articulo");
-                });
-
-            modelBuilder.Entity("ventas.Models.Categoria", b =>
-                {
-                    b.Property<int>("CategoriaID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<byte>("Condicion")
-                        .HasColumnType("tinyint");
-
-                    b.Property<string>("Descripcion")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Nombre");
-
-                    b.HasKey("CategoriaID");
-
-                    b.ToTable("Categoria");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole")
@@ -272,14 +228,6 @@ namespace ventas.Data.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("ventas.Models.Articulo", b =>
-                {
-                    b.HasOne("ventas.Models.Categoria", "categoria")
-                        .WithMany("Articulos")
-                        .HasForeignKey("CategoriaID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
