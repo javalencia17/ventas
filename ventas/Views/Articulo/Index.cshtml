@@ -1,0 +1,105 @@
+﻿
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalArticulo" onclick="modalArticulo()">
+        Nuevo Articulo
+    </button>
+
+</p>
+<table class="table" id="tableArticle">
+    <thead>
+        <tr>
+            <th>
+                Codigo
+            </th>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Stock
+            </th>
+            <th>
+                categoria
+            </th>
+            <th>
+                Descripcion
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody id="tbodyArticle"></tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="modalArticulo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="restablecerModalArticulo()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLabel">Articulo</h5>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <label for="Codigo">Código</label>
+                    <input type="text" class="form-control" id="Codigo" placeholder="Ingrese codigo">
+                </div>
+
+                <div class="form-group">
+                    <label for="Nombre">Nombre</label>
+                    <input type="text" class="form-control" id="Nombre" placeholder="Ingrese nombre">
+                </div>
+
+                <div class="form-group">
+                    <label for="Stock">Stock</label>
+                    <input type="number" min="1" class="form-control" id="Stock" placeholder="Ingrese stock">
+                </div>
+                <div class="form-group">
+                    <label for="Categoria" class="col-md-2 control-label">Categoria</label><br />
+                    <div class="col-md-12">
+                        <select id='CategoriaArticulos' class="form-control" style="width:100%">
+                            <option value="0">seleccione</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Descripcion">Descripción</label>
+                    <textarea id="Descripcion" rows="4" cols="50" style="width:100%" placeholder="Ingrese descripción del Articulo"></textarea>
+                </div>
+
+                @*<div class="col-sm-6">
+                        <fieldset style="padding:11px; margin:15px;" class="cont-archivos">
+                            <h3> Adjuntar archivos</h3>
+                            <form action="javascript:;" enctype="multipart/form-data" id="formularioArchivo" class="form-horizontal">
+                                <div class="form-group">
+                                    <div class="col-md-6">
+                                        <input type="file" multiple class="file file-loading" data-preview-file-type="any" id="archivosSubir" name="archivosSubir[]">
+                                    </div>
+                                </div>
+                            </form>
+                        </fieldset>
+                    </div>*@
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary pull-right" data-dismiss="modal" onclick="restablecerModalArticulo()">Cerrar</button>
+                <div id="botonModalArticulo">
+                    
+                </div>    
+            </div>
+        </div>
+    </div>
+</div>
+
+

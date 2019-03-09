@@ -10,8 +10,16 @@ $().ready(() => {
         case "/Categoria":
             cargarDatos();
             break;
+        case "/Articulo":
+            listarArticulos();
+            break;
+        case "/Persona":
+            listarPersonas();
+            break;
     }
 });
+
+
 
 cargarDatos = () => {
     categoria = new Categoria();
@@ -41,4 +49,166 @@ eliminarCategoria = (id) => {
     categoria.eliminarCategoria(id);
 
 }
+
+/*------------------------------------
+    Articulos
+-----------------------------------*/
+
+getCategorias = () => {
+    var articulo = new Articulo();
+    articulo.getCategorias();
+}
+
+guardarArticulo = () => {
+
+    var articulo = new Articulo();
+    let codigo = document.getElementById('Codigo').value;
+    let nombre = document.getElementById('Nombre').value;
+    let stock = document.getElementById('Stock').value;
+    let categoriaID = $('#CategoriaArticulos').val();
+    let descripcion = document.getElementById('Descripcion').value;
+
+    let data = {
+        codigo,
+        nombre,
+        stock,
+        categoriaID,
+        descripcion
+    };
+    articulo.guardarArticulo(data);
+}
+
+listarArticulos = () => {
+    var articulo = new Articulo();
+    articulo.listarArticulos();
+}
+
+editarArticulo = (id, funcion) => {
+    var articulo = new Articulo()
+    articulo.editarArticulo(id, funcion)
+}
+
+restablecerModalArticulo = () => {
+    var articulo = new Articulo()
+    articulo.restablecer();
+}
+
+modalArticulo = () => {
+    var articulo = new Articulo()
+    articulo.modalArticulo()
+}
+
+eliminarArticulo = (id) => {
+    swal({
+        title: "Esta seguro?",
+        text: "Una vez, Eliminado no podra recuperar el archivo!",
+        icon: "warning",
+        buttons: ["Cancelar", "Eliminar"],
+        dangerMode: true,
+    })
+        .then((willDelete) => {
+            if (willDelete) {
+                var articulo = new Articulo()
+                articulo.eliminarArticulo(id)
+            }
+        });
+} 
+
+
+//=============================
+//  PERSONAS
+//=============================
+
+
+guardarPersona = () => {
+    persona = new Persona();
+
+    let nombre = document.getElementById('Nombre').value;
+    let tipoPersona = document.getElementById('TipoPersona').value;
+    let tipoDocumento = document.getElementById('TipoDocumento').value;
+    let documento = document.getElementById('Documento').value;
+    let direccion = document.getElementById('Direccion').value;
+    let telefono = document.getElementById('Telefono').value;
+    let email = document.getElementById('Email').value;
+
+    data = {
+        nombre,
+        tipoPersona,
+        tipoDocumento,
+        NumeroDocumento: documento,
+        direccion,
+        telefono,
+        email
+    };
+
+        
+    persona.guardarPersona( data );
+}
+
+
+listarPersonas = () => {
+
+    persona = new Persona();
+    persona.listarPersonas()
+}
+
+modalEditar = (id) => {
+    persona = new Persona();
+    persona.modalEditar(id);
+}
+
+editarPersona = () => {
+    persona = new Persona();
+
+    let personaID = document.getElementById('idOculto').value;
+    let nombre = document.getElementById('MNombre').value;
+    let tipoPersona = document.getElementById('MTipoPersona').value;
+    let tipoDocumento = document.getElementById('MTipoDocumento').value;
+    let documento = document.getElementById('MDocumento').value;
+    let direccion = document.getElementById('MDireccion').value;
+    let telefono = document.getElementById('MTelefono').value;
+    let email = document.getElementById('MEmail').value;
+
+    data = {
+        personaID,
+        nombre,
+        tipoPersona,
+        tipoDocumento,
+        NumeroDocumento: documento,
+        direccion,
+        telefono,
+        email
+    };
+
+
+    persona.editarPersona(data);
+}
+
+eliminarPersona = (id) => {
+
+    swal({
+        title: "Esta seguro?",
+        text: "Una vez, Eliminado no podra recuperar el archivo!",
+        icon: "warning",
+        buttons: ["Cancelar", "Eliminar"],
+        dangerMode: true,
+    })
+        .then((willDelete) => {
+            if (willDelete) {
+                persona = new Persona();
+                persona.eliminarPersona(id)
+            }
+        });
+   
+
+}
+
+
+
+
+
+
+
+
+
 

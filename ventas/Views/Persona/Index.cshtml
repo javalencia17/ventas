@@ -1,0 +1,168 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Personas</h2>
+
+
+<button class="btn btn-primary" data-toggle="modal" data-target="#ModalPersona"> Nuevo</button>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Tipo persona
+            </th>
+            <th>
+                Tipo Documento
+            </th>
+            <th>
+                Documento
+            </th>
+            <th>
+                Dirección
+            </th>
+            <th>
+                Telefono
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody id="cargarPersonas"></tbody>
+</table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="ModalPersona" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Persona</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <form>
+                    <div class="form-group">
+                        <label for="Nombre">Nombre</label>
+                        <input type="text" class="form-control" id="Nombre" placeholder="Ingrese nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="TipoPersona">Tipo Persona</label><br />
+                        <select id="TipoPersona" class="custom-select custom-select-sm" style="width: 100%">
+                            <option selected value="0">Seleccione </option>
+                            <option value="1">Cliente</option>
+                            <option value="2">Proveedor</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="TipoDocumento">Tipo Documento</label><br />
+                        <select id="TipoDocumento" class="custom-select custom-select-sm" style="width: 100%">
+                            <option selected value="0">Seleccione </option>
+                            <option value="1">CC</option>
+                            <option value="2">NIT</option>
+                            <option value="3">CE</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Documento">Numero Documento</label>
+                        <input type="text" class="form-control" id="Documento" placeholder="Ingrese documento">
+                    </div>
+                    <div class="form-group">
+                        <label for="Direccion">Dirección</label>
+                        <input type="text" class="form-control" id="Direccion" placeholder="Ingrese direccion">
+                    </div>
+                    <div class="form-group">
+                        <label for="Telefono">Telefono</label>
+                        <input type="text" class="form-control" id="Telefono" placeholder="Ingrese telefono">
+                    </div>
+                    <div class="form-group">
+                        <label for="Email">Email</label>
+                        <input type="text" class="form-control" id="Email" placeholder="Ingrese Correo electronico">
+                    </div>
+                </form>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="guardarPersona()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Editar-->
+<div class="modal fade" id="ModalEditarPersona" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editar persona</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <form>
+                    <div id="oculto"></div>
+                    <div class="form-group">
+                        <label for="Nombre">Nombre</label>
+                        <input type="text" class="form-control" id="MNombre" placeholder="Ingrese nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="TipoPersona">Tipo Persona</label><br />
+                        <select id="MTipoPersona" class="custom-select custom-select-sm" style="width: 100%">
+                            <option selected value="0">Seleccione </option>
+                            <option value="1">Cliente</option>
+                            <option value="2">Proveedor</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="TipoDocumento">Tipo Documento</label><br />
+                        <select id="MTipoDocumento" class="custom-select custom-select-sm" style="width: 100%">
+                            <option selected value="0">Seleccione </option>
+                            <option value="1">CC</option>
+                            <option value="2">NIT</option>
+                            <option value="3">CE</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Documento">Numero Documento</label>
+                        <input type="text" class="form-control" id="MDocumento" placeholder="Ingrese documento">
+                    </div>
+                    <div class="form-group">
+                        <label for="Direccion">Dirección</label>
+                        <input type="text" class="form-control" id="MDireccion" placeholder="Ingrese direccion">
+                    </div>
+                    <div class="form-group">
+                        <label for="Telefono">Telefono</label>
+                        <input type="text" class="form-control" id="MTelefono" placeholder="Ingrese telefono">
+                    </div>
+                    <div class="form-group">
+                        <label for="Email">Email</label>
+                        <input type="text" class="form-control" id="MEmail" placeholder="Ingrese Correo electronico">
+                    </div>
+                </form>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="editarPersona()">Modificar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
