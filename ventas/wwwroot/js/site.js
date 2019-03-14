@@ -16,6 +16,8 @@ $().ready(() => {
         case "/Persona":
             listarPersonas();
             break;
+        case "/Ingresos":
+            cargarSelects();
     }
 });
 
@@ -201,6 +203,23 @@ eliminarPersona = (id) => {
         });
    
 
+}
+
+
+
+//=============================
+//  Ingresos
+//=============================
+
+
+cargarSelects = () => {
+    ingreso = new Ingreso();
+    ingreso.cargarSelects();
+}
+
+addDetails = () => {
+    ingreso = new Ingreso();
+    ingreso.addDetails();
 }
 
 

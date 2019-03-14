@@ -27,5 +27,7 @@ namespace ventas.Models
 
         public Categoria categoria { get; set; }
 
+        public ICollection<DetalleIngreso> DetalleIngresos { get; set; }
+
     }
 }

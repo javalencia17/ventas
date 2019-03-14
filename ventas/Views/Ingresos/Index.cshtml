@@ -1,0 +1,114 @@
+﻿
+
+<h2>Ingresos</h2>
+<br />
+<div class="row">
+
+    <select class="custom-select custom-select-lg mb-3" id="Proveedor" style="width: 100%">
+        <option value="0">Seleccione</option>
+    </select>
+
+</div>
+<br />
+
+<div class="row">
+
+    <div class="col-sm-4">
+        <label for="Serie">Tipo comprobante</label>
+        <select class="custom-select custom-select-lg mb-3" id="Comprobante" style="width: 100%">
+            <option value="0">Seleccione</option>
+        </select>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="form-group">
+            <label for="Serie">Serie del comprobante</label>
+            <input type="text" class="form-control" id="Serie" name="Serie" placeholder="Serie del comprobante..." />
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="form-group">
+            <label for="Numero">Numero Comprobante</label>
+            <input type="text" class="form-control" id="Numero" name="Numero" placeholder="Numero del Comprobante..." />
+        </div>
+    </div>
+
+</div>
+
+<div class="panel panel-default">
+
+    <div class="panel-body">
+
+        <div class="col-sm-4">
+            <label for="Serie">Articulo</label>
+            <select class="custom-select custom-select-lg mb-3" id="Articulo" style="width: 100%">
+                <option value="0">Seleccione</option>
+            </select>
+        </div>
+
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label for="Cantidad">Cantidad</label>
+                <input type="number" class="form-control" id="Cantidad" name="Cantidad" min="1" placeholder="Cantidad..." />
+            </div>
+        </div>
+
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label for="PrecioCompra">Precio de Compra</label>
+                <input type="number" class="form-control" id="PrecioCompra" name="PrecioCompra" min="1" placeholder="P Compra..." />
+            </div>
+        </div>
+
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label for="PrecioVenta">Precio de Venta</label>
+                <input type="number" class="form-control" id="PrecioVenta" name="PrecioVenta" min="1" placeholder="P Venta..." />
+            </div>
+        </div>
+
+        <div class="col-sm-2">
+            <button class="btn btn-primary" onclick="addDetails()">Agregar</button>
+        </div>
+
+
+        <div id="tablaDetalles">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>Opciones</td>
+                        <td>Articulo</td>
+                        <td>Cantidad</td>
+                        <td>Precio Compra</td>
+                        <td>Precio Venta</td>
+                        <td>Subtotal</td>
+                    </tr>
+                </thead>
+               <tbody id="tbodyDetalles">
+               </tbody>
+            </table>
+            
+            <hr>
+
+            <table class="table">
+                    <tr>
+                        <td>Total</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+            </table>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
