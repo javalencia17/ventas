@@ -26,6 +26,10 @@ namespace ventas.Models
 
         public Comprobante comprobante { get; set; }
 
+        public int PersonaID { get; set; }
+
+        public Persona persona { get; set; }
+
         public ICollection<DetalleIngreso> DetalleIngresos { get; set; }
 
 

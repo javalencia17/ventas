@@ -25,5 +25,7 @@ namespace ventas.Models
         public String  Telefono { get; set; }
 
         public String Email { get; set; }
+
+        public ICollection<Ingreso> ingresos { get; set; }
     }
 }

@@ -27,6 +27,10 @@ namespace ventas.Models
 
         public Categoria categoria { get; set; }
 
+        public int? UbicacionID { get; set; }
+
+        public virtual Ubicacion ubicacion { get; set; }
+
         public ICollection<DetalleIngreso> DetalleIngresos { get; set; }
 
     }

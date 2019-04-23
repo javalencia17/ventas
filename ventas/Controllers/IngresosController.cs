@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using ventas.Data;
 using ventas.Models;
 using ventas.ModelsClass;
@@ -41,6 +43,15 @@ namespace ventas.Controllers
         {
             return ingresoModels.GetArticulos();
         }
+        
+        public List<IdentityError> GuardarIngresos(IngresoTemp ingreso)
+        {
+            return ingresoModels.GuardarIngresos(ingreso);  
+        }
 
+        
+        
     }
+
+ 
 }

@@ -4,7 +4,7 @@
 <br />
 <div class="row">
 
-    <select class="custom-select custom-select-lg mb-3" id="Proveedor" style="width: 100%">
+    <select class="select2" id="Proveedor" style="width: 100%">
         <option value="0">Seleccione</option>
     </select>
 
@@ -15,8 +15,10 @@
 
     <div class="col-sm-4">
         <label for="Serie">Tipo comprobante</label>
-        <select class="custom-select custom-select-lg mb-3" id="Comprobante" style="width: 100%">
+        <select class="select2" id="Comprobante" style="width: 100%">
             <option value="0">Seleccione</option>
+            <option value="1">Factura de venta</option>
+            <option value="2">Remision de ingreso</option>
         </select>
     </div>
 
@@ -42,7 +44,7 @@
 
         <div class="col-sm-4">
             <label for="Serie">Articulo</label>
-            <select class="custom-select custom-select-lg mb-3" id="Articulo" style="width: 100%">
+            <select class="select2" id="Articulo" style="width: 100%">
                 <option value="0">Seleccione</option>
             </select>
         </div>
@@ -75,7 +77,7 @@
 
         <div id="tablaDetalles">
 
-            <table class="table">
+            <table class="table" id="tablaDetails">
                 <thead>
                     <tr>
                         <td>Opciones</td>
@@ -92,16 +94,20 @@
             
             <hr>
 
-            <table class="table">
-                    <tr>
-                        <td>Total</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-            </table>
+            <div>
+                <label class="pull-left">Total</label>
+                <span class="pull-right">
+                    <label id="Total"></label>
+                </span>
+            </div>
+
+            <hr />
+
+            <div id="BotonGuardar">
+                <a href="#" class="btn btn-primary" onclick="guardarIngresos()">Guardar</a>
+            </div>
+
+          
 
 
         </div>

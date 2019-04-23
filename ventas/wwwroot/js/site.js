@@ -222,6 +222,23 @@ addDetails = () => {
     ingreso.addDetails();
 }
 
+eliminarFila = (fila) => {
+    ingreso = new Ingreso();
+    ingreso.eliminarFila( fila  );
+}
+
+
+guardarIngresos = () => {
+    ingreso = new Ingreso();
+    ingreso.guardarIngresos();
+}
+
+//=============================
+//  Ventas
+//=============================
+
+
+
 
 
 
