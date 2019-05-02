@@ -7,7 +7,7 @@ namespace ventas.ModelsClass
 {
     public class IngresoTemp
     {
-        public int Proveedor { get; set; }
+        public int Persona { get; set; }
         public int Comprobante { get; set; }
         public int Serie { get; set; }
         public int Numero { get; set; }

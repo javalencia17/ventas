@@ -17,5 +17,7 @@ namespace ventas.Models
 
         public ICollection<Ingreso> Ingresos { get; set; }
 
+        public ICollection<Sale> Sales { get; set; }
+
     }
 }

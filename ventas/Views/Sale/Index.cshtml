@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Ventas</h2>
+<br />
+
+<div class="row">
+
+    <select class="select2" id="Cliente" style="width: 100%">
+        <option value="value">Seleccione</option>
+    </select>
+
+</div>
+
+<br />
+
+<div class="row"> 
+    
+    <div class="col-sm-4">
+        <label for="Serie">Tipo Comprobante</label><br />
+        <select class="select2" id="Comprobante" style="width: 100%">
+            <option value="0">Seleccione</option>
+            <option value="1">Factura de venta</option>
+            <option value="1">Remision de ingreso</option>
+        </select>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="form-group">
+            <label for="Serie">Serie Comprobante</label>
+            <input type="text" class="form-control" id="Serie" name="Serie" placeholder="Serie comprobante..."/>
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="form-group">
+            <label for="Numero">Numero Comprobante</label>
+            <input type="text" class="form-control" name="numero" id="numero" placeholder="numero de comprobante..."/>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="panel panel-default">
+
+    <div class="panel-body">
+
+        <div class="col-sm-4">
+            <label for="Serie">Articulo</label>
+            <select class="select2" id="Articulo" style="width: 100%">
+                <option value="0">Seleccione</option>
+            </select>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="form-group">
+                <label for="Cantidad">Cantidad</label>
+                <input type="number" class="form-control" id="Cantidad" name="Cantidad" min="1" placeholder="Cantidad..." />
+            </div>
+        </div>
+
+        
+
+        <div class="col-sm-3">
+            <div class="form-group">
+                <label for="PrecioVenta">Precio de Venta</label>
+                <input type="number" class="form-control" id="PrecioVenta" name="PrecioVenta" min="1" placeholder="P Venta..." />
+            </div>
+        </div>
+
+        <div class="col-sm-2">
+            <button class="btn btn-primary" onclick="addDetalles()">Agregar</button>
+        </div>
+
+
+        <div id="tablaDetalles">
+
+            <table class="table" id="tablaDetails">
+                <thead>
+                    <tr>
+                        <td>Opciones</td>
+                        <td>Articulo</td>
+                        <td>Cantidad</td>
+                        <td>Precio Venta</td>
+                        <td>Subtotal</td>
+                    </tr>
+                </thead>
+                <tbody id="tbodyDetalles"></tbody>
+            </table>
+
+            <hr>
+
+            <div>
+                <label class="pull-left">Total</label>
+                <span class="pull-right">
+                    <label id="Total"></label>
+                </span>
+            </div>
+
+            <hr />
+
+            <div id="BotonGuardar">
+                <a href="#" class="btn btn-primary" onclick="saveSale()">Guardar</a>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+</div>
+

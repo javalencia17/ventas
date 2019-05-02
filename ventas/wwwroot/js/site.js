@@ -18,6 +18,9 @@ $().ready(() => {
             break;
         case "/Ingresos":
             cargarSelects();
+            break;
+        case "/Sale":
+            loadSelects();
     }
 });
 
@@ -236,6 +239,26 @@ guardarIngresos = () => {
 //=============================
 //  Ventas
 //=============================
+
+loadSelects = () => {
+    sale = new Sale();
+    sale.cargarSelects();
+}
+
+addDetalles = () => {
+    sale = new Sale();
+    sale.addDetalles();
+}
+
+deleteRow = (row) => {
+    sale = new Sale();
+    sale.deleteRow(row);
+}
+
+saveSale = () => {
+    sale = new Sale();
+    sale.saveSale()
+}
 
 
 

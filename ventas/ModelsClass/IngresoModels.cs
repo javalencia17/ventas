@@ -60,7 +60,7 @@ namespace ventas.ModelsClass
                         Fecha = now,
                         Impuesto = 16,
                         ComprobanteID = comprobante.ComprobanteID,
-                        PersonaID = ingreso.Proveedor 
+                        PersonaID = ingreso.Persona
                     };
 
                     context.Ingreso.Add(ing);

@@ -33,5 +33,7 @@ namespace ventas.Models
 
         public ICollection<DetalleIngreso> DetalleIngresos { get; set; }
 
+        public ICollection<SaleDetail> SaleDetails { get; set; }
+
     }
 }

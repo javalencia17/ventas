@@ -19,6 +19,8 @@ namespace ventas.Data
         public DbSet<DetalleIngreso> DetalleIngreso { get; set; }
         public DbSet<Ingreso> Ingreso { get; set; }
         public DbSet<Comprobante> Comprobante { get; set; }
+        public DbSet<Sale> Sale { get; set; }
+        public DbSet<SaleDetail> SaleDetail { get; set; }
 
 
     }
