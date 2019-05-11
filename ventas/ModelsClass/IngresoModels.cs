@@ -21,6 +21,81 @@ namespace ventas.ModelsClass
             this.context = context;        
         }
 
+        internal List<object[]> loadTable()
+        {
+            List<object[]> data = new List<object[]>();
+            var tbody = "";
+
+            var ingresos = context.Ingreso.OrderBy(i => i.IngresoID).ToList();
+
+            foreach (var item in ingresos)
+            {
+                var proveedor = this.GetProveedor(item.PersonaID);
+                var comprobante = this.GetComprobante(item.ComprobanteID);
+                var tipoFactura = this.getTipoFactura(Convert.ToInt32(comprobante[0].Tipo));
+                var estado = this.getEstado(item.Estado, item.IngresoID);
+                var total = this.getTotal(item.IngresoID);
+
+                tbody += "<tr>" +
+                        "<td>" + item.Fecha + "</td>" +
+                        "<td>" + proveedor[0].Nombre + "</td>" +
+                        "<td>" +  tipoFactura + "</td>" +
+                        "<td>" + item.Impuesto + "</td>" +
+                        "<td>" + estado + "</td>" +
+                        "<td>" + total + "</td>" +
+                        "<td><a class='btn btn-primary' onclick='modalDetalles("+ item.IngresoID +")'>Detalles</a><a class='btn btn-danger'>Anular</a></td>" +
+                        "</tr>";
+            }
+
+            Object[] dataObj = { tbody };
+            data.Add(dataObj);
+            return data;
+        }
+
+        private string getTotal(int ingresoID)
+        {
+            var ingreso = context.Ingreso
+                                 .Join(context.DetalleIngreso,
+                                        ing => ing.IngresoID,
+                                        detail => detail.IngresoID,
+                                        (ing, detail) => new { ing, detail })
+                                        .Where(ing => ing.detail.IngresoID == ingresoID)
+                                        .Sum(t => t.detail.PrecioCompra);
+
+            return Convert.ToString(ingreso);
+        }
+
+        private string getEstado(int estado, int id)
+        {
+            string buton = "";
+            if (estado == 1)
+            {
+                buton = "<a class='btn btn-success' onclick='editStateEntry("+id+")'>Activo<a/>";
+            }
+            else
+            {
+                buton = "<a class='btn btn-danger' onclick='editStateEntry(" + id + ")'>Activo<a/>";
+            }
+
+            return buton;
+        }
+
+        private string getTipoFactura(int tipo)
+        {
+            string valor = (tipo == 1) ? "Factura de venta" : "remision de ingreso";
+
+            return valor;
+        }
+
+        private List<Comprobante> GetComprobante(int comprobanteID)
+        {
+            return context.Comprobante.Where(c => c.ComprobanteID == comprobanteID).ToList();
+        }
+
+        private List<Persona> GetProveedor(int personaID)
+        {
+            return context.Persona.Where(p => p.PersonaID == personaID).ToList();
+        }
 
         internal List<Persona> GetProveedores()
         {

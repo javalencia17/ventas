@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ventas.Data;
 using ventas.Models;
@@ -35,6 +36,12 @@ namespace ventas.Controllers
         public List<Articulo> GetArticles()
         {
             return SaleModels.GetArticles();
+        }
+
+
+        public List<IdentityError> SaveSale(IngresoTemp venta)
+        {
+            return SaleModels.SaveSale(venta);
         }
     }
 }

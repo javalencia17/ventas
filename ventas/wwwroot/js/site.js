@@ -21,6 +21,8 @@ $().ready(() => {
             break;
         case "/Sale":
             loadSelects();
+        case "/MisIngresos":
+            loadTableMyIncome();
     }
 });
 
@@ -259,6 +261,19 @@ saveSale = () => {
     sale = new Sale();
     sale.saveSale()
 }
+
+//=============================
+//  Mis ingresos
+//=============================
+
+loadTableMyIncome = () => {
+    income = new MisIngresos();
+    income.loadTableMyIncome();
+}
+
+modalDetalles = () => {
+}
+
 
 
 

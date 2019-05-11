@@ -112,7 +112,8 @@ class Sale {
     }
 
     saveSale() {
-        let cliente = $('#Cliente').val();
+        let action = "Sale/SaveSale";
+        let persona = $('#Cliente').val();
         let comprobante = $('#Comprobante').val();
         let serie = document.getElementById('Serie').value;
         let numero = document.getElementById('numero').value;
@@ -135,7 +136,7 @@ class Sale {
         }
 
         let venta = {
-            cliente,
+            persona,
             comprobante,
             serie,
             numero,
@@ -167,7 +168,7 @@ class Sale {
         $('#Articulo').val('0'); // Select the option with a value of '1'
         $('#Articulo').trigger('change'); // Notify any JS components that the value changed
         document.getElementById('Serie').value = "";
-        document.getElementById('Numero').value = "";
+        document.getElementById('numero').value = "";
         document.getElementById('Cantidad').value = "";
         document.getElementById('PrecioVenta').value = "";
         $("#tbodyDetalles tr").remove();
